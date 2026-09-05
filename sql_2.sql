@@ -43,6 +43,24 @@ SELECT * FROM persona LIMIT 1;
 SELECT * FROM persona ORDER BY puntaje;
 # SELECT ORDER BY.. ORDENAR POR COLUMNA MAYOR A MENOR.
 SELECT * FROM persona ORDER BY puntaje DESC;
+
+#Ejemplo: MUESTRA A LA PERSONA CON MAYOR PUNTAJE:
+SELECT * FROM persona ORDER BY puntaje DESC LIMIT 1; 
+#limit siempre va al final
+
+# DML PUEDEN EJECUTAR OPERACIONES::::
+SELECT * FROM persona;
+# EJ: PUNTAJE + 1000 PTOS DE REGALO.
+SELECT id, nombre, puntaje + 1000 FROM persona;
+# Otros ejemplos en base al caso anterior (mutaciones)
+SELECT id, nombre, puntaje + 1000 as nuevo_ptj FROM persona;
+SELECT id, nombre, puntaje - 10 as nuevo_ptj FROM persona;
+SELECT id, nombre, puntaje / 2 as nuevo_ptj FROM persona;
+SELECT id, nombre, puntaje * 1.5 as nuevo_ptj FROM persona;
+
+# OPERACIONES DE AGREGACIÓN:::::: DML SELECT.
+
+
 #SELECT WHERE.
 
 

@@ -72,7 +72,18 @@ SELECT AVG(puntaje) as promedio FROM persona;
 SELECT activo FROM persona;
 SELECT DISTINCT activo FROM persona; #Se muestran los valores únicos
 
-#SELECT WHERE.
+#SELECT WHERE -> Filtrar información.
+SELECT * FROM persona;
+# PEJ: Muestra a la persona con ID 24.
+SELECT * FROM persona WHERE id = 24;
+# PEJ: Muestra a las personas con puntaje mayor a 250.
+SELECT * FROM persona WHERE puntaje > 250; #LIMIT...
+# PEJ: Muestra a las personas con puntaje menor o igual 250.
+SELECT * FROM persona WHERE puntaje <= 250;
+# PEJ: Muestra a las personas con ids 24 y 25.
+SELECT * FROM persona WHERE id in (24,25);
+# PEJ: Muestra a las personas que NO tengan id 24 y 25.
+SELECT * FROM persona WHERE id NOT in (24, 25);
 
 
 

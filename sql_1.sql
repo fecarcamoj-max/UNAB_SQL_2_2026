@@ -22,6 +22,8 @@ CREATE TABLE persona(
 	activo_dos int(1) # int(1) = tinyint
 );
 
+DROP TABLE persona;
+
 ### Modificar una tabla.... ALTER.
 # Agregar una columna::
 ALTER TABLE persona 
@@ -33,7 +35,7 @@ ALTER TABLE persona
 
 #Modificar una columna::::
 ALTER TABLE persona
-	MODIFY COLUMN numero INT(5) NOT NULL;
+	MODIFY COLUMN numero INT(50) NOT NULL;
 
 # CONSULTAS DE SERVIDOR:::
 # Mostrar todas las bases de datos del servidor;

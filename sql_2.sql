@@ -84,6 +84,35 @@ SELECT * FROM persona WHERE puntaje <= 250;
 SELECT * FROM persona WHERE id in (24,25);
 # PEJ: Muestra a las personas que NO tengan id 24 y 25.
 SELECT * FROM persona WHERE id NOT in (24, 25);
+# Operaciones y filtros de fecha. WHERE 
+SELECT * FROM persona;
+# PEJ: QUIÉN NACIÓ EL 20 DE MARZO DEL 95.
+SELECT * FROM persona WHERE fecha_nacimiento = "1995-03-20";
+# PEJ: QUIÉN NACIÓ DESPUÉS DEL 01 DE ENERO DEL 1995.
+SELECT * FROM persona WHERE fecha_nacimiento > "1995-01-01";
+# PEJ: CUÁNTOS NACIERON DESDE DEL 01 DE ENERO DEL 1995.
+SELECT COUNT(id) FROM persona WHERE fecha_nacimiento >= "1995-01-01"; 
+# OPERACIONES DE FECHAS:
+SELECT fecha_nacimiento, fecha_registro FROM persona;
+# MOSTRAR AÑO de la fecha:
+SELECT YEAR(fecha_nacimiento), YEAR(fecha_registro) FROM persona;
+# MOSTRAR EL MES DE LA FECHA:
+SELECT MONTH(fecha_nacimiento), MONTH(fecha_registro) FROM persona;
+# Día y semana
+SELECT DAY(fecha_nacimiento), WEEK(fecha_registro) FROM persona;
+# PEJ: valores numéricos como fechas -> RANGOS:
+# PEJ1: MUESTRA A LOS PUNTAJES ENTRE 150 Y 350.
+SELECT * FROM persona WHERE puntaje >= 150 AND puntaje <= 350;
+SELECT * FROM persona WHERE puntaje between 150 AND 350;
+# PEJ2: MOSTRAR A LAS PERSONAS QUE NACIERON ENTRE 1994 Y 2000.
+SELECT * FROM persona WHERE YEAR(fecha_nacimiento) between 1994 and 2000;
+SELECT * FROM persona WHERE fecha_nacimiento >= "1994-01-01" AND
+fecha_nacimiento < "2000-01-01";
 
+# WHERE COMODÍN LIKE
 
+# AGRUPACIÓN POR TABLA ÚNICA.
 
+# UPDATE... Actualizar datos.
+
+# CASE.

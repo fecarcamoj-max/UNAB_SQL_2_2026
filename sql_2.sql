@@ -59,7 +59,18 @@ SELECT id, nombre, puntaje / 2 as nuevo_ptj FROM persona;
 SELECT id, nombre, puntaje * 1.5 as nuevo_ptj FROM persona;
 
 # OPERACIONES DE AGREGACIÓN:::::: DML SELECT.
-
+# EJ: Muestra la cantidad de personas en la app.
+SELECT COUNT(*) as cantidad_p FROM persona;
+SELECT COUNT(id) as cantidad_p FROM persona;
+# EJ: MUESTRA EL PUNTAJE MÁXIMO de las personas.
+SELECT MAX(puntaje) as max_ptj FROM persona;
+# EJ: Muestra el puntaje mínimo de las personas.
+SELECT MIN(puntaje) as min_ptj FROM persona;
+# EJ: Muestra el puntaje promedio de las personas.
+SELECT AVG(puntaje) as promedio FROM persona;
+# MOSTRAR VALORES ÚNICOS (ELIMINAR REPETIDOS)
+SELECT activo FROM persona;
+SELECT DISTINCT activo FROM persona; #Se muestran los valores únicos
 
 #SELECT WHERE.
 

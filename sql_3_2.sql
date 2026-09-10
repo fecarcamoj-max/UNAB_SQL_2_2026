@@ -1,21 +1,30 @@
 #### Materia de la S3. Consultas Avanzadas en SQL.
 #Seleccionar base de datos a utilizar
-
+use clase_sql;
 #Mostrar data de ventas.
-
+SELECT * FROM ventas;
 #Mostrar data de persona.
+SELECT * FROM persona;
 
-#Producto cartesiano
+#Producto cartesiano de dos tablas. personas X ventas. CRUCE TOTAL.
+SELECT * FROM persona, ventas;
 
-# Muestra las ventas con los datos de la persona. JOIN WHERE
+# Muestra TODAS las ventas con los datos de la persona. JOIN WHERE
+SELECT * FROM persona, ventas
+WHERE persona.id_persona = ventas.id_persona;
 
+# JOIN SQL...
 # Muestra las ventas con los datos de la persona. INNER JOIN (Intersección)
-
+SELECT * FROM ventas
+INNER JOIN persona ON persona.id_persona = ventas.id_persona;
 
 # LEFT JOIN (Unión a la izquierda).
+SELECT * FROM ventas
+LEFT JOIN persona ON persona.id_persona = ventas.id_persona;
 
 # Right Join:::: (Unión a la derecha).
-
+SELECT * FROM ventas
+RIGHT JOIN persona ON persona.id_persona = ventas.id_persona;
 
 # SELF JOIN ; WHERE # Hacer parejas con personas que vivan en la misma ciudad.
 

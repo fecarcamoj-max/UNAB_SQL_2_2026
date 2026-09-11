@@ -69,6 +69,22 @@ SELECT * FROM persona
 WHERE id_persona NOT IN (SELECT id_persona FROM ventas);
 
 # Creación de vistas y tablas respaldos
+# VISTAS: PEJ: Queremos ver siempre a las personas que NO TIENEN VENTAS.
+CREATE VIEW personas_sin_ventas AS
+SELECT * FROM persona
+WHERE id_persona NOT IN (SELECT id_persona FROM ventas);
+# VER VISTA:::
+SELECT * FROM personas_sin_ventas;
+# Motor de recomendación IA débil, Dar prioridad a los clientes que no han tenido venta
+# Para iniciar una campaña de marketing::::::
+SELECT * FROM personas_sin_ventas
+UNION
+SELECT * FROM persona;
+
+# CREACIÓN DE TABLAS DE RESPALDO:::::::::::::
+CREATE DATABASE respaldo;
+CREATE TABLE respaldo.persona_backup AS
+SELECT * FROM clase_sql.persona;
 
 # Validación de creación de una vista
 

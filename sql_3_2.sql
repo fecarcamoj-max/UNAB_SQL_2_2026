@@ -87,10 +87,18 @@ CREATE TABLE respaldo.persona_backup AS
 SELECT * FROM clase_sql.persona;
 
 # Validación de creación de una vista
+SELECT * FROM personas_sin_ventas; # Revisa la vista:::
 
+# JOIN:: Mostrar las ventas de las últimas 2 personas registradas.
+SELECT * FROM ventas
+INNER JOIN persona ON persona.id_persona = ventas.id_persona
+ORDER BY persona.id_persona DESC limit 2;
 
-# JOIN Consulta anidada:: Mostrar las ventas de las últimas 2 personas registradas.
-
+CREATE VIEW ultimas_2_personas_ventas AS
+SELECT persona.id_persona, id_venta, nombre, cantidad, fecha_venta, correo, ciudad FROM ventas
+INNER JOIN persona ON persona.id_persona = ventas.id_persona
+ORDER BY persona.id_persona DESC limit 2
+;
 
 # Creación de vista en base a join de ultimas ventas llamadas ultimos clientes ventas::::
 

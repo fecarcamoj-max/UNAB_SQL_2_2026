@@ -93,13 +93,26 @@ SELECT * FROM personas_sin_ventas; # Revisa la vista:::
 SELECT * FROM ventas
 INNER JOIN persona ON persona.id_persona = ventas.id_persona
 ORDER BY persona.id_persona DESC limit 2;
-
+# Creación de vista en base a join de ultimas ventas llamadas ultimos clientes ventas::::
 CREATE VIEW ultimas_2_personas_ventas AS
 SELECT persona.id_persona, id_venta, nombre, cantidad, fecha_venta, correo, ciudad FROM ventas
 INNER JOIN persona ON persona.id_persona = ventas.id_persona
 ORDER BY persona.id_persona DESC limit 2
 ;
 
-# Creación de vista en base a join de ultimas ventas llamadas ultimos clientes ventas::::
-
 # FULL OUTER JOIN. 
+
+SELECT * FROM persona;
+SELECT * FROM ventas;
+SELECT * FROM persona, ventas;
+# PEJ: MOSTRAR A LAS PERSONAS QUE NUNCA HAYAN REALIZADO VENTAS Y A LAS VENTAS
+# QUE NO TENGAN ASOCIADAS PERSONAS. (Resolver con FULL OUTER JOIN MARIADB)
+SELECT * FROM persona 
+LEFT JOIN ventas ON persona.id_persona = ventas.id_persona
+WHERE ventas.id_persona is NULL
+UNION 
+SELECT * FROM persona
+RIGHT JOIN ventas ON persona.id_persona = ventas.id_persona
+WHERE persona.id_persona is NULL;
+
+##############
